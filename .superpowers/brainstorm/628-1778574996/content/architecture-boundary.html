@@ -1,0 +1,55 @@
+<h2>设计确认 1：架构边界</h2>
+<p class="subtitle">确认哪些状态放前端会话，哪些能力放服务端，哪些结果只作为派生产物。</p>
+
+<div class="mockup">
+  <div class="mockup-header">Recommended: End-to-end MVP with a central schema contract</div>
+  <div class="mockup-body">
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;align-items:stretch">
+      <div class="placeholder" style="min-height:220px;text-align:left">
+        <h3>Client Session</h3>
+        <p>Current artboard</p>
+        <p>Selected page/block target</p>
+        <p>Current schema</p>
+        <p>Style edits</p>
+        <p>Code settings</p>
+        <p>Readonly generated files</p>
+      </div>
+      <div class="placeholder" style="min-height:220px;text-align:left">
+        <h3>Server</h3>
+        <p>Upload validation</p>
+        <p>Zip extraction</p>
+        <p>Injected entryUrl</p>
+        <p>Sketch list records</p>
+        <p>Schema generation rules</p>
+        <p>Code generation rules</p>
+        <p>Image slicing endpoint</p>
+      </div>
+      <div class="placeholder" style="min-height:220px;text-align:left">
+        <h3>Generated Outputs</h3>
+        <p>Layout schema</p>
+        <p>Skeleton schema</p>
+        <p>HTML/Vue/React files</p>
+        <p>CSS/Less/Sass files</p>
+        <p>Preview render</p>
+        <p>No persistence after refresh</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="options">
+  <div class="option" data-choice="approve" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Looks right</h3>
+      <p>Keep this boundary and continue to page flow.</p>
+    </div>
+  </div>
+  <div class="option" data-choice="revise" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Revise boundary</h3>
+      <p>Something should move between client, server, or generated outputs.</p>
+    </div>
+  </div>
+</div>

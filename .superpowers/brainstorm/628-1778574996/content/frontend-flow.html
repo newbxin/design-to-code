@@ -1,0 +1,66 @@
+<h2>设计确认 2：前端页面流</h2>
+<p class="subtitle">把用户路径收束成 4 个页面：列表、视觉稿预览、生成效果预览、代码预览。</p>
+
+<div class="mockup">
+  <div class="mockup-header">Frontend flow</div>
+  <div class="mockup-body">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;align-items:stretch">
+      <div class="placeholder" style="min-height:230px;text-align:left">
+        <h3>1. Sketch List</h3>
+        <p>Upload zip</p>
+        <p>Search list</p>
+        <p>Edit metadata</p>
+        <p>Delete sketch + resources</p>
+        <p>Open preview</p>
+      </div>
+      <div class="placeholder" style="min-height:230px;text-align:left">
+        <h3>2. Sketch Preview</h3>
+        <p>Iframe entryUrl</p>
+        <p>Artboard list</p>
+        <p>Zoom controls</p>
+        <p>Cache page metadata</p>
+        <p>Select block / blank area</p>
+        <p>Generate layout or skeleton</p>
+      </div>
+      <div class="placeholder" style="min-height:230px;text-align:left">
+        <h3>3. Result Preview</h3>
+        <p>Component tree</p>
+        <p>Generated render</p>
+        <p>Element selection sync</p>
+        <p>Style editor</p>
+        <p>Apply edits via getCode</p>
+        <p>Open readonly code</p>
+      </div>
+      <div class="placeholder" style="min-height:230px;text-align:left">
+        <h3>4. Code Preview</h3>
+        <p>Readonly file list</p>
+        <p>Readonly code viewer</p>
+        <p>Settings drawer</p>
+        <p>Regenerate from current schema</p>
+        <p>No download in MVP</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>Target selection rule</h3>
+  <p>Entering or switching artboards sets the current target to page. Clicking a block switches the target to block. Clicking blank space switches back to page.</p>
+</div>
+
+<div class="options">
+  <div class="option" data-choice="approve" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Looks right</h3>
+      <p>Use this page flow and continue to server API design.</p>
+    </div>
+  </div>
+  <div class="option" data-choice="revise" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Revise flow</h3>
+      <p>Add, remove, or merge pages before moving on.</p>
+    </div>
+  </div>
+</div>

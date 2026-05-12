@@ -1,0 +1,50 @@
+<h2>设计确认 5：错误处理与 MVP 范围</h2>
+<p class="subtitle">MVP 优先打通端到端闭环，明确哪些失败要提示，哪些能力暂不做。</p>
+
+<div class="mockup">
+  <div class="mockup-header">Error handling</div>
+  <div class="mockup-body">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+      <div class="placeholder" style="text-align:left;min-height:230px">
+        <h3>Blocking errors</h3>
+        <p>Upload is not zip</p>
+        <p>Zip extraction fails</p>
+        <p>index.html missing</p>
+        <p>Injection fails</p>
+        <p>Schema request has no metadata</p>
+        <p>Code generation fails</p>
+      </div>
+      <div class="placeholder" style="text-align:left;min-height:230px">
+        <h3>Non-MVP</h3>
+        <p>No generated code persistence</p>
+        <p>No code manual editing</p>
+        <p>No download package</p>
+        <p>No visual comparison mode</p>
+        <p>No operation history</p>
+        <p>No login/auth</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>MVP success</h3>
+  <p>A user can upload a valid zip, open its iframe preview, generate layout or skeleton code from page/block metadata, inspect and style-edit the generated preview, and view readonly generated files with session-only settings.</p>
+</div>
+
+<div class="options">
+  <div class="option" data-choice="approve" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Looks right</h3>
+      <p>Use this as the MVP boundary and prepare the written design.</p>
+    </div>
+  </div>
+  <div class="option" data-choice="revise" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Revise scope</h3>
+      <p>Add or remove an MVP capability before writing the design.</p>
+    </div>
+  </div>
+</div>

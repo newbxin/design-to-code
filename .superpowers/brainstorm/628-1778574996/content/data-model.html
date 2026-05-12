@@ -1,0 +1,71 @@
+<h2>设计确认 4：数据模型与 Schema 契约</h2>
+<p class="subtitle">Schema 是唯一中间契约：组件树、样式编辑、代码生成、图片裁切都围绕它工作。</p>
+
+<div class="mockup">
+  <div class="mockup-header">Core data shapes</div>
+  <div class="mockup-body">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+      <div class="placeholder" style="text-align:left;min-height:260px">
+        <h3>Sketch Record</h3>
+        <p>id</p>
+        <p>name</p>
+        <p>description</p>
+        <p>createTime</p>
+        <p>entryUrl</p>
+        <p>resourceDir</p>
+      </div>
+      <div class="placeholder" style="text-align:left;min-height:260px">
+        <h3>Generated Schema</h3>
+        <p>id, mode, targetType</p>
+        <p>root node</p>
+        <p>node bounds</p>
+        <p>node styles</p>
+        <p>node children</p>
+        <p>asset crop info</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="mockup">
+  <div class="mockup-header">Schema node contract</div>
+  <div class="mockup-body">
+    <pre style="white-space:pre-wrap;text-align:left;background:#f7f8fa;padding:16px;border-radius:8px">{
+  id: "node-1",
+  name: "banner",
+  tag: "div" | "img" | "span" | "button",
+  type: "container" | "text" | "image" | "shape" | "skeleton",
+  bounds: { x, y, width, height },
+  styles: { ...cssLikeProperties },
+  text?: "按钮文案",
+  asset?: {
+    usage: "img" | "background",
+    sourceImage: "page-capture-url-or-path",
+    rect: { x, y, width, height }
+  },
+  children: []
+}</pre>
+  </div>
+</div>
+
+<div class="section">
+  <h3>Important rule</h3>
+  <p>Style editing patches node.styles in the current frontend schema. Code preview and save both regenerate from that current schema. Nothing in this schema is persisted in MVP.</p>
+</div>
+
+<div class="options">
+  <div class="option" data-choice="approve" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Looks right</h3>
+      <p>Use this schema model and continue to error handling and MVP scope.</p>
+    </div>
+  </div>
+  <div class="option" data-choice="revise" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Revise schema</h3>
+      <p>Change node fields, asset handling, or persistence assumptions.</p>
+    </div>
+  </div>
+</div>
