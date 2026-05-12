@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="drawio" version="26.0.0">
+  <diagram name="OpenSpec 工作流">
+    <mxGraphModel dx="1400" dy="1100" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1500" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="OpenSpec 工作流程图&#xa;每个阶段标注对应命令" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=24;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="410" y="30" width="680" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="start" value="开始&#xa;提出想法、问题或需求" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=16;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="620" y="150" width="260" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="explore" value="探索阶段&#xa;命令：/Openspec Explore&#xa;用途：澄清问题、调查代码、比较方案、记录发现&#xa;常用 CLI：openspec list --json" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=15;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="560" y="280" width="380" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ready" value="是否足够清晰&#xa;可以正式立项？" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=15;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="625" y="450" width="250" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="propose" value="提案阶段&#xa;命令：/Openspec Propose&#xa;用途：创建变更并生成必需工件&#xa;常用 CLI：openspec new change &quot;&lt;name&gt;&quot;&#xa;openspec status --change &quot;&lt;name&gt;&quot; --json" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=15;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="520" y="640" width="460" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="artifacts" value="生成并完善 OpenSpec 工件&#xa;proposal.md：变更目标与原因&#xa;design.md：设计方案&#xa;specs/**/spec.md：能力需求增量&#xa;tasks.md：实现任务清单" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=15;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="510" y="850" width="480" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="applyReady" value="applyRequires 已满足？&#xa;通常需要 tasks 工件完成" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=15;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="635" y="1040" width="230" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="apply" value="实现阶段&#xa;命令：/Openspec Apply Change&#xa;用途：读取上下文文件并逐项实现 tasks.md&#xa;常用 CLI：openspec instructions apply --change &quot;&lt;name&gt;&quot; --json" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=15;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="520" y="1220" width="460" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="tasksLoop" value="任务循环&#xa;1. 实现一个待办项&#xa;2. 运行验证/测试&#xa;3. 将 tasks.md 中 - [ ] 改为 - [x]&#xa;4. 继续下一个任务" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=15;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="1210" width="360" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="done" value="所有任务完成？" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=15;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="635" y="1410" width="230" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="archive" value="归档阶段&#xa;命令：/Openspec Archive Change&#xa;用途：检查工件和任务、评估规格同步、移动到 archive&#xa;常用操作：openspec status --change &quot;&lt;name&gt;&quot; --json" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=15;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="510" y="1590" width="480" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="sync" value="规格同步检查&#xa;比较 openspec/changes/&lt;name&gt;/specs&#xa;与 openspec/specs&#xa;需要时同步主规格" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=15;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="530" y="1790" width="440" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="end" value="结束&#xa;变更归档到&#xa;openspec/changes/archive/YYYY-MM-DD-&lt;name&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=16;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="565" y="1970" width="370" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="note" value="当前仓库示例&#xa;活跃变更：build-design-to-code-platform&#xa;Schema：spec-driven&#xa;applyRequires：tasks&#xa;工件状态：proposal / design / specs / tasks 均为 done" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=14;align=left;verticalAlign=top;spacing=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="640" width="370" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;endArrow=block;" edge="1" parent="1" source="start" target="explore">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;endArrow=block;" edge="1" parent="1" source="explore" target="ready">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="是" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;endArrow=block;" edge="1" parent="1" source="ready" target="propose">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" value="否：继续探索" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;entryX=0;entryY=0.5;endArrow=block;" edge="1" parent="1" source="ready" target="explore">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="350" y="515" />
+              <mxPoint x="350" y="340" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;endArrow=block;" edge="1" parent="1" source="propose" target="artifacts">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;endArrow=block;" edge="1" parent="1" source="artifacts" target="applyReady">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" value="是" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;endArrow=block;" edge="1" parent="1" source="applyReady" target="apply">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" value="否：补齐缺失工件" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;entryX=0;entryY=0.5;endArrow=block;" edge="1" parent="1" source="applyReady" target="artifacts">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="330" y="1100" />
+              <mxPoint x="330" y="915" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e9" value="逐项执行" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;endArrow=block;" edge="1" parent="1" source="apply" target="tasksLoop">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" value="更新进度" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.5;endArrow=block;" edge="1" parent="1" source="tasksLoop" target="apply">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1030" y="1390" />
+              <mxPoint x="1000" y="1390" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;endArrow=block;" edge="1" parent="1" source="apply" target="done">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" value="否：继续实现" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;entryX=0.5;entryY=1;endArrow=block;" edge="1" parent="1" source="done" target="tasksLoop">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1230" y="1470" />
+              <mxPoint x="1230" y="1390" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e13" value="是" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;endArrow=block;" edge="1" parent="1" source="done" target="archive">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;endArrow=block;" edge="1" parent="1" source="archive" target="sync">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;endArrow=block;" edge="1" parent="1" source="sync" target="end">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

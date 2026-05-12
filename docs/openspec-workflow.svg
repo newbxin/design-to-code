@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="2150" viewBox="0 0 1500 2150" role="img" aria-labelledby="title desc">
+  <title id="title">OpenSpec 工作流程图</title>
+  <desc id="desc">标注 OpenSpec 探索、提案、实现、归档阶段以及每个阶段使用的命令。</desc>
+  <defs>
+    <style>
+      text { font-family: "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif; fill: #1f2933; }
+      .title { font-size: 24px; font-weight: 700; }
+      .node-title { font-size: 16px; font-weight: 700; }
+      .node { font-size: 14px; }
+      .small { font-size: 13px; }
+      .edge { stroke: #334e68; stroke-width: 2.4; fill: none; }
+      .edge-label { font-size: 13px; fill: #334e68; font-weight: 700; }
+    </style>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#334e68" />
+    </marker>
+    <filter id="softShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#102a43" flood-opacity="0.12" />
+    </filter>
+  </defs>
+  <rect width="1500" height="2150" fill="#ffffff" />
+  <rect x="410" y="30" width="680" height="80" rx="0" fill="#f5f5f5" stroke="#666666" stroke-width="2" filter="url(#softShadow)" />
+  <text x="750" y="63" text-anchor="middle" class="title">OpenSpec 工作流程图</text>
+  <text x="750" y="92" text-anchor="middle" class="node">每个阶段标注对应命令</text>
+
+  <ellipse cx="750" cy="190" rx="130" ry="40" fill="#d5e8d4" stroke="#82b366" stroke-width="2" />
+  <text x="750" y="184" text-anchor="middle" class="node-title">开始</text>
+  <text x="750" y="207" text-anchor="middle" class="node">提出想法、问题或需求</text>
+
+  <rect x="560" y="280" width="380" height="120" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2" filter="url(#softShadow)" />
+  <text x="750" y="309" text-anchor="middle" class="node-title">探索阶段</text>
+  <text x="750" y="333" text-anchor="middle" class="node">命令：/Openspec Explore</text>
+  <text x="750" y="357" text-anchor="middle" class="node">用途：澄清问题、调查代码、比较方案、记录发现</text>
+  <text x="750" y="381" text-anchor="middle" class="small">常用 CLI：openspec list --json</text>
+
+  <polygon points="750,450 875,515 750,580 625,515" fill="#fff2cc" stroke="#d6b656" stroke-width="2" filter="url(#softShadow)" />
+  <text x="750" y="508" text-anchor="middle" class="node-title">是否足够清晰</text>
+  <text x="750" y="532" text-anchor="middle" class="node">可以正式立项？</text>
+
+  <rect x="520" y="640" width="460" height="150" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2" filter="url(#softShadow)" />
+  <text x="750" y="670" text-anchor="middle" class="node-title">提案阶段</text>
+  <text x="750" y="694" text-anchor="middle" class="node">命令：/Openspec Propose</text>
+  <text x="750" y="718" text-anchor="middle" class="node">用途：创建变更并生成必需工件</text>
+  <text x="750" y="742" text-anchor="middle" class="small">常用 CLI：openspec new change "&lt;name&gt;"</text>
+  <text x="750" y="766" text-anchor="middle" class="small">openspec status --change "&lt;name&gt;" --json</text>
+
+  <polygon points="550,850 990,850 950,980 510,980" fill="#ffe6cc" stroke="#d79b00" stroke-width="2" filter="url(#softShadow)" />
+  <text x="750" y="879" text-anchor="middle" class="node-title">生成并完善 OpenSpec 工件</text>
+  <text x="750" y="903" text-anchor="middle" class="node">proposal.md：变更目标与原因</text>
+  <text x="750" y="927" text-anchor="middle" class="node">design.md：设计方案</text>
+  <text x="750" y="951" text-anchor="middle" class="node">specs/**/spec.md：能力需求增量</text>
+  <text x="750" y="975" text-anchor="middle" class="node">tasks.md：实现任务清单</text>
+
+  <polygon points="750,1040 865,1100 750,1160 635,1100" fill="#fff2cc" stroke="#d6b656" stroke-width="2" filter="url(#softShadow)" />
+  <text x="750" y="1093" text-anchor="middle" class="node-title">applyRequires 已满足？</text>
+  <text x="750" y="1117" text-anchor="middle" class="node">通常需要 tasks 工件完成</text>
+
+  <rect x="520" y="1220" width="460" height="130" fill="#e1d5e7" stroke="#9673a6" stroke-width="2" filter="url(#softShadow)" />
+  <text x="750" y="1249" text-anchor="middle" class="node-title">实现阶段</text>
+  <text x="750" y="1273" text-anchor="middle" class="node">命令：/Openspec Apply Change</text>
+  <text x="750" y="1297" text-anchor="middle" class="node">用途：读取上下文文件并逐项实现 tasks.md</text>
+  <text x="750" y="1321" text-anchor="middle" class="small">常用 CLI：openspec instructions apply --change "&lt;name&gt;" --json</text>
+
+  <rect x="1050" y="1210" width="360" height="150" fill="#e1d5e7" stroke="#9673a6" stroke-width="2" filter="url(#softShadow)" />
+  <text x="1230" y="1239" text-anchor="middle" class="node-title">任务循环</text>
+  <text x="1230" y="1263" text-anchor="middle" class="node">1. 实现一个待办项</text>
+  <text x="1230" y="1287" text-anchor="middle" class="node">2. 运行验证/测试</text>
+  <text x="1230" y="1311" text-anchor="middle" class="node">3. 将 tasks.md 中 - [ ] 改为 - [x]</text>
+  <text x="1230" y="1335" text-anchor="middle" class="node">4. 继续下一个任务</text>
+
+  <polygon points="750,1410 865,1470 750,1530 635,1470" fill="#fff2cc" stroke="#d6b656" stroke-width="2" filter="url(#softShadow)" />
+  <text x="750" y="1476" text-anchor="middle" class="node-title">所有任务完成？</text>
+
+  <rect x="510" y="1590" width="480" height="140" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2" filter="url(#softShadow)" />
+  <text x="750" y="1620" text-anchor="middle" class="node-title">归档阶段</text>
+  <text x="750" y="1644" text-anchor="middle" class="node">命令：/Openspec Archive Change</text>
+  <text x="750" y="1668" text-anchor="middle" class="node">用途：检查工件和任务、评估规格同步、移动到 archive</text>
+  <text x="750" y="1692" text-anchor="middle" class="small">常用操作：openspec status --change "&lt;name&gt;" --json</text>
+
+  <polygon points="570,1790 970,1790 930,1910 530,1910" fill="#ffe6cc" stroke="#d79b00" stroke-width="2" filter="url(#softShadow)" />
+  <text x="750" y="1820" text-anchor="middle" class="node-title">规格同步检查</text>
+  <text x="750" y="1844" text-anchor="middle" class="node">比较 openspec/changes/&lt;name&gt;/specs</text>
+  <text x="750" y="1868" text-anchor="middle" class="node">与 openspec/specs</text>
+  <text x="750" y="1892" text-anchor="middle" class="node">需要时同步主规格</text>
+
+  <ellipse cx="750" cy="2015" rx="185" ry="45" fill="#d5e8d4" stroke="#82b366" stroke-width="2" />
+  <text x="750" y="2000" text-anchor="middle" class="node-title">结束</text>
+  <text x="750" y="2024" text-anchor="middle" class="node">变更归档到</text>
+  <text x="750" y="2048" text-anchor="middle" class="small">openspec/changes/archive/YYYY-MM-DD-&lt;name&gt;</text>
+
+  <rect x="60" y="640" width="370" height="150" fill="#f5f5f5" stroke="#666666" stroke-width="2" filter="url(#softShadow)" />
+  <text x="80" y="669" class="node-title">当前仓库示例</text>
+  <text x="80" y="695" class="node">活跃变更：build-design-to-code-platform</text>
+  <text x="80" y="721" class="node">Schema：spec-driven</text>
+  <text x="80" y="747" class="node">applyRequires：tasks</text>
+  <text x="80" y="773" class="node">工件状态：proposal / design / specs / tasks 均为 done</text>
+
+  <path class="edge" marker-end="url(#arrow)" d="M750 230 L750 280" />
+  <path class="edge" marker-end="url(#arrow)" d="M750 400 L750 450" />
+  <path class="edge" marker-end="url(#arrow)" d="M750 580 L750 640" />
+  <text x="775" y="616" class="edge-label">是</text>
+  <path class="edge" marker-end="url(#arrow)" d="M625 515 L350 515 L350 340 L560 340" />
+  <text x="392" y="496" class="edge-label">否：继续探索</text>
+  <path class="edge" marker-end="url(#arrow)" d="M750 790 L750 850" />
+  <path class="edge" marker-end="url(#arrow)" d="M750 980 L750 1040" />
+  <path class="edge" marker-end="url(#arrow)" d="M750 1160 L750 1220" />
+  <text x="775" y="1196" class="edge-label">是</text>
+  <path class="edge" marker-end="url(#arrow)" d="M635 1100 L330 1100 L330 915 L510 915" />
+  <text x="360" y="1082" class="edge-label">否：补齐缺失工件</text>
+  <path class="edge" marker-end="url(#arrow)" d="M980 1285 L1050 1285" />
+  <text x="1000" y="1268" class="edge-label">逐项执行</text>
+  <path class="edge" marker-end="url(#arrow)" d="M1050 1325 L1000 1325 L1000 1285 L980 1285" />
+  <text x="1008" y="1315" class="edge-label">更新进度</text>
+  <path class="edge" marker-end="url(#arrow)" d="M750 1350 L750 1410" />
+  <path class="edge" marker-end="url(#arrow)" d="M865 1470 L1230 1470 L1230 1360" />
+  <text x="1020" y="1452" class="edge-label">否：继续实现</text>
+  <path class="edge" marker-end="url(#arrow)" d="M750 1530 L750 1590" />
+  <text x="775" y="1566" class="edge-label">是</text>
+  <path class="edge" marker-end="url(#arrow)" d="M750 1730 L750 1790" />
+  <path class="edge" marker-end="url(#arrow)" d="M750 1910 L750 1970" />
+</svg>
